@@ -12,6 +12,6 @@ docker run --name jenkins \
 docker run --name jenkins \
 --privileged \
 -v /Users/mateusgobo/dockerdata/jenkins_home:/var/jenkins_home \
--p 9100:9001 \
+-p 9100:8080 \
 -p 9101:50000 \
--d jenkins:2.313-alpine-jdk8
+-d jenkins/jenkins:2.313-alpine-jdk8
