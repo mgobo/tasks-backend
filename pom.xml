@@ -21,6 +21,10 @@
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+		
+		<!-- <power.mock>1.6.4</power.mock>
+		<power.mock.tests>1.6.4</power.mock.tests>
+		<powermock.api.mockito.common>1.6.5</powermock.api.mockito.common> -->
 	</properties>
 
 	<dependencies>
@@ -55,6 +59,38 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${power.mock}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${power.mock}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito-common</artifactId>
+			<version>${powermock.api.mockito.common}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-core</artifactId>
+			<version>${power.mock}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock.tests</groupId>
+			<artifactId>powermock-tests-utils</artifactId>
+			<version>${power.mock.tests}</version>
+			<scope>test</scope>
+		</dependency> -->
+
 	</dependencies>
 
 	<build>
