@@ -23,12 +23,12 @@ public class TaskController {
 	@Autowired
 	private TaskRepo todoRepo;
 	
-	@GetMapping
+	@GetMapping()
 	public List<Task> findAll() {
 		return todoRepo.findAll();
 	}
 	
-	@PostMapping
+	@PostMapping()
 	public ResponseEntity<Task> save(@RequestBody Task todo) throws ValidationException {
 		if(todo.getTask() == null || todo.getTask() == "") {
 			throw new ValidationException("Fill the task description");
