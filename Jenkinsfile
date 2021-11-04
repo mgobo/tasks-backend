@@ -16,7 +16,7 @@ pipeline {
                 scannerHome = tool 'SONAR_SCANNER'
             }
             steps {
-                withSonarQubeEnv('SONAR_LOCAL'){
+                withSonarQubeEnv(credentialsId: 'SonarGhostCredentials') {
                     echo "${scannerHome}"
                     mvn 'sonar:sonar'
                 }
