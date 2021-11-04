@@ -11,5 +11,17 @@ pipeline {
                 echo 'mvn test'
             }
         }
+        stage('Sonar Analysis....') {
+            environment {
+                scannerHome = tool 'SONAR_SCANNER'
+            }
+            steps {
+                withSonarQubeEnv('SONAR_LOCAL'){
+                    echo "${scannerHome}"
+                    mvn 'sonar:sonar'
+                }
+            }
+        }
+            
     }
 }
