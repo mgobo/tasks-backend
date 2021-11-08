@@ -24,6 +24,15 @@ pipeline {
                 }
             }
         }
-            
+        stage('Quality Gate'){
+            steps {
+                sleep(20) {
+                    echo 'ANSWER HAS BEEN SENDED FROM QUALITY GATE'
+                }
+                timeout(time: 1, unit: 'MINUTES'){
+                    waitForQualityGates abortPipeline: true
+                }
+            }
+        }   
     }
 }
