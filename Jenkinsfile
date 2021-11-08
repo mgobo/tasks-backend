@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 withMaven(jdk: 'JDK8', maven: 'maven-jenkins') {
-                    withSonarQubeEnv(credentialsId: 'SonarGhostCredentials') {
+                    withSonarQubeEnv(installationName:"SONAR_SCANNER", credentialsId: 'SonarGhostCredentials') {
                         echo "${scannerHome}"
                         mvn 'sonar:sonar'
                     }
