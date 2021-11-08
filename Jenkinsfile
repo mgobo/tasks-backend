@@ -26,11 +26,15 @@ pipeline {
         }
         stage('Quality Gate'){
             steps {
-                sleep(20) {
-                    echo 'ANSWER HAS BEEN SENDED FROM QUALITY GATE'
-                }
-                timeout(time: 1, unit: 'MINUTES'){
-                    waitForQualityGate abortPipeline: true
+                withMaven(jdk: 'JDK8', maven: 'maven-jenkins') {
+                    withSonarQubeEnv(installationName:"sonar-ghost", credentialsId: 'SonarGhostCredentials') {
+                        sleep(20) {
+                            echo 'ANSWER HAS BEEN SENDED FROM QUALITY GATE'
+                        }
+                        timeout(time: 1, unit: 'MINUTES'){
+                            waitForQualityGate abortPipeline: true
+                        }
+                    }
                 }
             }
         }   
