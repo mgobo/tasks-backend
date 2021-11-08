@@ -30,7 +30,7 @@ pipeline {
                     echo 'ANSWER HAS BEEN SENDED FROM QUALITY GATE'
                 }
                 timeout(time: 1, unit: 'MINUTES'){
-                    waitForQualityGates abortPipeline: true
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }   
