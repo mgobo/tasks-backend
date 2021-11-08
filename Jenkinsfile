@@ -16,9 +16,11 @@ pipeline {
                 scannerHome = tool 'SONAR_SCANNER'
             }
             steps {
-                withSonarQubeEnv(credentialsId: 'SonarGhostCredentials') {
-                    echo "${scannerHome}"
-                    mvn 'sonar:sonar'
+                withMaven(jdk: 'JDK8', maven: 'maven-jenkins') {
+                    withSonarQubeEnv(credentialsId: 'SonarGhostCredentials') {
+                        echo "${scannerHome}"
+                        mvn 'sonar:sonar'
+                    }
                 }
             }
         }
